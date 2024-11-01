@@ -1,0 +1,131 @@
+---
+import { Image } from 'astro:assets';
+import hund from "../assets/images/hundi2.png"
+import korals from "../assets/images/korals.png"
+import plastikvand from "../assets/images/vandplastik.png"
+import hjerte from "../assets/images/plastikhjerte.png"
+import tak from "../assets/images/bobbel.png"
+import Button from './Button.astro';
+
+
+---
+
+
+<Image src={korals} alt="Koraler" class="z-0 absolute mt-96 lg:mt-60" loading="lazy"/>
+<Image src={plastikvand} alt="Plastik under vand" class="absolute right-0 w-[40%] lg:w-[35%]" loading="lazy"/>
+
+<section id="form" class=" h-full lg:h-screen relative z-50"> 
+
+    <h2 class="text-sort950 font-[campton-xb] text-center text-5xl lg:text-7xl pt-20 mb-2">BIDRAG</h2>
+    <p class="font-[tiempos] text-center text-sort950 text-lg lg:hidden">
+        Vi ville sætte stor pris på hvis du gad sende et bidrag så du kan 
+        hjælpe os med at skabe en bedre fremtid for os og vores jord/planet.
+    </p>
+    <p class="hidden font-[tiempos] text-center text-sort950 text-lg lg:block">
+        Vi ville sætte stor pris på hvis du gad sende et bidrag så du kan <br>
+        hjælpe os med at skabe en bedre fremtid for os og vores jord/planet.
+    </p>
+
+    <form name="bidrag" class="grid grid-cols-1 lg:grid-cols-2 border-[1px] bg-hvid border-sort950 shadow-xl rounded-lg p-5 m-10 mx-auto w-4/5 lg:w-3/5 relative" data-netlify="true"> <!-- Add 'relative' -->
+       
+       <div class="col1"> 
+      
+        
+        <Image src={hjerte} alt="Plastikhjerte" class="hover:rotate-[20deg] duration-500 hover:ease-in-out absolute w-1/5 lg:w-20 left-[241px] lg:left-[400px] -mt-5 z-10" loading="lazy"/> 
+        
+        <Image src={tak} alt="Talebobbel" class="absolute w-2/5 lg:w-48 left-[-20px] lg:left-[-110px] lg:mt-10 z-20" loading="lazy"/>
+        <Image src={hund} alt="Hund" class="" loading="lazy"/>
+    </div>
+
+
+
+
+
+
+    <div class=" p-5 mx-auto rounded-lg">
+        <h2 class="text-sm font-[tiempos] text-sort700 mb-4">Støt os i kampen mod plastikforurening</h2>
+        
+        <!-- Radio buttons-->
+        <div class="mb-4">
+            <h3 class="mb-2 text-sort950 font-[campton-xb]">Vælg hvordan du ønsker at bidrage</h3>
+            <div class="flex flex-col lg:space-x-4 lg:flex-row ">
+                <label class="flex items-center border border-sort950 rounded-lg p-1 mb-3 lg:mb-0 lg:px-6 bg-hvid">
+                    <input type="radio" name="monthly" value="månedligt" class="appearance-none border border-pink w-4 h-4 lg:w-5 lg:h-5 rounded-full relative cursor-pointer focus:outline-none focus:ring-0 checked:border-pink" />
+                    <span class="ml-2 text-sm font-[tiempos] text-sort700">Månedligt</span>
+                </label>
+                <label class="flex items-center border border-sort950 rounded-lg p-1 lg:px-6 bg-hvid">
+                    <input type="radio" name="single" value="engangsbeløb" class="appearance-none border border-pink  w-4 h-4 lg:w-5 lg:h-5 rounded-full relative cursor-pointer focus:outline-none focus:ring-0 checked:border-pink" />
+                    <span class="ml-2 text-sm font-[tiempos] text-sort700">Engangsbeløb</span>
+                </label>
+            </div>
+            <p class="text-xs font-[tiempos] text-sort700 my-2">Dit bidrag, stort som småt, hjælper os med at tage kampen op mod plastikforurening. Tak for din støtte!</p>
+        </div>
+        
+        
+        
+       
+        <div class="mb-4">
+            <h3 class=" mb-2 text-sort950 font-[campton-xb]">Hvor meget vil du bidrage?</h3>
+            <div class="flex flex-col space-y-2">
+                <label class="flex items-center">
+                    <input type="radio" name="50" value="optionA" class="appearance-none border border-pink  w-4 h-4 lg:w-5 lg:h-5 rounded-full relative cursor-pointer focus:outline-none focus:ring-0 checked:border-pink" checked />
+                    <span class="ml-2 text-lg font-[tiempos] text-sort950">50kr</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" name="75" value="optionB" class="appearance-none border border-pink  w-4 h-4 lg:w-5 lg:h-5 rounded-full relative cursor-pointer focus:outline-none focus:ring-0 checked:border-pink" />
+                    <span class="ml-2 text-lg font-[tiempos] text-sort950">75kr</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" name="150" value="optionC" class="appearance-none border border-pink  w-4 h-4 lg:w-5 lg:h-5 rounded-full relative cursor-pointer focus:outline-none focus:ring-0 checked:border-pink" />
+                    <span class="ml-2 text-lg font-[tiempos] text-sort950">150kr</span>
+                </label>
+            </div>
+        </div>
+    
+        <!-- Number input -->
+        <div>
+            <input type="number" id="numberInput" class="border border-sort950 rounded-lg p-1 px-4 bg-hvid" placeholder="Andet beløb" min="1" />
+        </div>
+        
+
+      <div class="mt-4 flex justify-start"> 
+        <Button type="submit" class="shadow-lg ">Støt nu</Button>
+      </div> 
+
+    </div>
+
+</form>
+
+</section>
+
+
+<style>
+    input[type="radio"] {
+    position: relative;
+}
+
+input[type="radio"]:checked {
+    background-color: var(--vista-white-50); /* or white if using that color */
+    border-color: var(--cerise-red-600);
+}
+
+input[type="radio"]:checked::after {
+    content: '';
+    width: 0.5rem; /* Size of the inner dot */
+    height: 0.5rem; /* Size of the inner dot */
+    background-color: var(--cerise-red-600); /* The color of the inner dot */
+    border-radius: 50%; /* Make it circular */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the dot */
+}
+input[type="number"]:focus {
+        border-color: var(--cerise-red-600); /* Pink color for border */
+        outline: none; 
+        box-shadow: var(--cerise-red-600); /* Remove default outline */
+        /* Optional: shadow for enhanced focus effect */
+    }
+
+</style>
+
